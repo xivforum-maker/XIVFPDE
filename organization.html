@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Committee | XIV Forum on PDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="header.js" defer></script>
+    
+    <style>
+        /* Style specyficzne dla list komitetów */
+        .committee-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .person-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 15px;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.70);
+            margin-bottom: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .person-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .person-box:last-child { margin-bottom: 0; }
+
+        .person-name { font-weight: 800; color: #111827; }
+        .person-affil { color: #4b5563; font-size: 0.95em; }
+        
+        .person-link a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(30,58,138,.3);
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .person-box { flex-direction: column; align-items: center; text-align: center; }
+            .person-link { margin-top: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="responsive-container" style="max-width: 800px;">
+        <h2 class="committee-title">Organizing Committee</h2>
+        
+        <div class="main-box" style="padding: 20px;">
+            
+            <div class="person-box">
+                <div>
+                    <div class="person-name">Jarosław Mederski</div>
+                    <div class="person-affil">Polish Academy of Sciences (IMPAN)</div>
+                </div>
+                <div class="person-link">
+                    <a href="https://jmederski.impan.pl/" target="_blank" rel="noopener">Website</a>
+                </div>
+            </div>
+
+            <div class="person-box">
+                <div>
+                    <div class="person-name">Bartosz Bieganowski</div>
+                    <div class="person-affil">University of Warsaw</div>
+                </div>
+                <div class="person-link">
+                    <a href="https://mimuw.edu.pl/~bartoszb/" target="_blank" rel="noopener">Website</a>
+                </div>
+            </div>
+
+            <div class="person-box">
+                <div>
+                    <div class="person-name">Szymon Cygan</div>
+                    <div class="person-affil">University of Wrocław</div>
+                </div>
+                <div class="person-link">
+                    <a href="https://scygan.math.uni.wroc.pl/" target="_blank" rel="noopener">Website</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
