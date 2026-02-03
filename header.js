@@ -13,23 +13,35 @@ function injectHeader() {
     
     const headerHTML = `
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">
-            <img src="logo-impan.png" alt="IMPAN"> XIV FPDE
-        </a>
-        <div class="nav-links">
-            ${navLinks.map(link => `
-                <a href="${link.url}" class="${currentPage === link.url ? 'active-link' : ''}">
-                    ${link.name}
-                </a>
-            `).join('')}
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo-impan.png" alt="IMPAN"> XIV FPDE
+            </a>
+            
+            <button class="menu-toggle" id="menuOpen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <button class="close-menu" id="menuClose">&times;</button>
+                ${navLinks.map(link => `
+                    <a href="${link.url}" class="${currentPage === link.url ? 'active-link' : ''}">
+                        ${link.name}
+                    </a>
+                `).join('')}
+            </div>
         </div>
     </nav>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
 
     <header class="header-banner">
         <div class="header-container">
             <div class="logos">
-                    <img src="logo-impan.png" alt="IMPAN Logo" style="height: clamp(70px, 11vw, 100px); width: auto;">
-                    <img src="banachcenter.jpg" alt="Banach Center" style="height: clamp(70px, 11vw, 110px); width: auto;">
+                <img src="logo-impan.png" alt="IMPAN Logo" style="height: clamp(70px, 11vw, 100px); width: auto;">
+                <img src="banachcenter.jpg" alt="Banach Center" style="height: clamp(70px, 11vw, 110px); width: auto;">
             </div>
             <div class="header-text">
                 <h1>XIV Forum of Partial Differential Equations</h1>
@@ -41,6 +53,27 @@ function injectHeader() {
     `;
 
     document.getElementById('header-placeholder').innerHTML = headerHTML;
+
+    // Obsługa zdarzeń dla menu (po wstrzyknięciu HTML)
+    initMenu();
+}
+
+function initMenu() {
+    const openBtn = document.getElementById('menuOpen');
+    const closeBtn = document.getElementById('menuClose');
+    const nav = document.getElementById('navLinks');
+    const overlay = document.getElementById('menuOverlay');
+
+    function toggle() {
+        nav.classList.toggle('active');
+        overlay.classList.toggle('active');
+        // Blokada scrollowania strony przy otwartym menu
+        document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    if(openBtn) openBtn.addEventListener('click', toggle);
+    if(closeBtn) closeBtn.addEventListener('click', toggle);
+    if(overlay) overlay.addEventListener('click', toggle);
 }
 
 // Uruchom po załadowaniu strony
