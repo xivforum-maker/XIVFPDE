@@ -10,7 +10,6 @@
     <script src="header.js" defer></script>
     
     <style>
-        /* Specyficzne poprawki dla tabeli Google, których nie ma w style.css */
         .fpde-table-wrap, 
         .google-visualization-table, 
         .google-visualization-table > div,
@@ -49,8 +48,9 @@
     <div id="header-placeholder"></div>
 
     <div style="max-width: 980px; margin: 24px auto; padding: 0 20px;">
-        <div class="main-box" style="padding: 18px;"> <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-                <div style="font-weight:800; color:#111827; font-size: 20px;">Participants</div>
+        <div class="main-box" style="padding: 18px; background: white; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"> 
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                <div id="participant-count" style="font-weight:800; color:#111827; font-size: 20px;">Participants</div>
                 <div style="font-size: 13px; color:#6b7280;">Auto-updated from Google Sheets</div>
             </div>
 
@@ -95,6 +95,11 @@
                 return;
             }
             __fpdeData = response.getDataTable();
+
+            // Ustawiamy stałą liczbę uczestników raz, przy załadowaniu
+            const totalCount = __fpdeData.getNumberOfRows();
+            document.getElementById("participant-count").innerText = `${totalCount} registered participants`;
+
             if (__fpdeData.getNumberOfColumns() >= 3) {
                 __fpdeData.setColumnLabel(0, "Name");
                 __fpdeData.setColumnLabel(1, "Surname");
@@ -128,7 +133,11 @@
         window.__fpdeFilter = function (q) {
             if (!__fpdeData || !__fpdeView) return;
             const query = (q || "").trim().toLowerCase();
-            if (!query) { __fpdeView = new google.visualization.DataView(__fpdeData); renderTable(); return; }
+            if (!query) { 
+                __fpdeView = new google.visualization.DataView(__fpdeData); 
+                renderTable(); 
+                return; 
+            }
             const rows = [];
             for (let r = 0; r < __fpdeData.getNumberOfRows(); r++) {
                 const val = (String(__fpdeData.getValue(r,0))+" "+String(__fpdeData.getValue(r,1))+" "+String(__fpdeData.getValue(r,2))).toLowerCase();
@@ -137,6 +146,7 @@
             __fpdeView = new google.visualization.DataView(__fpdeData);
             __fpdeView.setRows(rows);
             renderTable();
+            // Licznik w tym miejscu nie jest aktualizowany – zostaje ten z fpdeHandleResponse
         };
 
         window.addEventListener("resize", () => { if (__fpdeTable && __fpdeView) renderTable(); });
