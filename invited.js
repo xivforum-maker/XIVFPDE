@@ -13,7 +13,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://via.placeholder.com/80?text=AZG" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -26,7 +26,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://via.placeholder.com/80?text=AS" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -39,7 +39,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://via.placeholder.com/80?text=AĆ" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -52,7 +52,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://i1.rgstatic.net/ii/profile.image/272370617323521-1441949514652_Q512/Piotr-Kalita.jpg" onerror="this.src='https://via.placeholder.com/80?text=PK'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -65,7 +65,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://i1.rgstatic.net/ii/profile.image/279782577442818-1443716664969_Q512/Julio-Rossi.jpg" onerror="this.src='https://via.placeholder.com/80?text=JR'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -78,7 +78,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://people.epfl.ch/private/common/photos/links/163825.jpg" onerror="this.src='https://via.placeholder.com/80?text=FG'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -91,7 +91,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://people.maths.ox.ac.uk/skrzeczkowsk/images/me.jpg" onerror="this.src='https://via.placeholder.com/80?text=JS'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -104,7 +104,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://www.cmm.uchile.cl/wp-content/uploads/2012/10/Michal-Kowalczyk_web.jpg" onerror="this.src='https://via.placeholder.com/80?text=MK'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -117,7 +117,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://via.placeholder.com/80?text=JJ" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -130,7 +130,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://prac.im.pwr.edu.pl/~plociniczak/img/LP.jpg" onerror="this.src='https://via.placeholder.com/80?text=ŁP'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -143,7 +143,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://people.utwente.nl/t.m.tyranowski/picture.jpg" onerror="this.src='https://via.placeholder.com/80?text=TT'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -156,7 +156,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://via.placeholder.com/80?text=KPP" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -169,7 +169,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://i1.rgstatic.net/ii/profile.image/11431281084803914-1663479155716_Q512/Konstantin-Merz.jpg" onerror="this.src='https://via.placeholder.com/80?text=KM'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -182,7 +182,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://www2.mathematik.uni-halle.de/waterstraat/nils.jpg" onerror="this.src='https://via.placeholder.com/80?text=NW'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -195,7 +195,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://via.placeholder.com/80?text=MS" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -208,7 +208,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                     <img src="https://via.placeholder.com/80?text=ICh" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -221,7 +221,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://via.placeholder.com/80?text=ASG" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
@@ -234,7 +234,7 @@ document.getElementById('invited-section').innerHTML = `
                     </p>
                 </div>
                 <div style="width: 80px; height: 80px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #eee; border: 1px solid #ddd;">
-                    <img src="https://www.ntnu.no/ansatte/bilder/jorgen.endal" onerror="this.src='https://via.placeholder.com/80?text=JE'" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://via.placeholder.com/80" class="speaker-img" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
 
