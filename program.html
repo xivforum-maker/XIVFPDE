@@ -10,9 +10,7 @@
     <script src="header.js" defer></script>
     
     <style>
-        /* Styl separatora i sekcji Submit */
         .separator { max-width: 900px; margin: 40px auto; border: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent); }
-
         #fpde-stage { width: 100%; overflow: hidden; margin-top: 40px; }
         #fpde-inner { width: 520px; margin: 0 auto; transform-origin: top center; text-align:center; font-size: 20px; }
         
@@ -25,20 +23,17 @@
         }
         #fpde-btn:hover { background: rgba(30, 58, 138, 0.05); transform: translateY(-2px); }
 
-        /* Style tabeli harmonogramu */
         .fpde-table-wrap { width: 100%; border-radius: 14px; display: block; overflow-x: auto; }
         .google-visualization-table-table { border-collapse: separate !important; width: 100% !important; border-radius: 14px !important; table-layout: fixed !important; }
         .fpde-header { background: linear-gradient(90deg, #1E3A8A, #2b76b8) !important; }
         .fpde-header-cell { color: white !important; font-weight: 800 !important; padding: 12px !important; text-align: center !important; }
         .fpde-cell { padding: 12px 8px !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; vertical-align: middle !important; text-align: center !important; word-wrap: break-word !important; }
         
-        /* Pierwsza kolumna (Godzina) */
         .google-visualization-table-table td:first-child { 
             width: 115px !important; background-color: rgba(30,58,138,0.05); 
             font-weight: bold; color: var(--primary-blue); text-align: center !important; 
         }
 
-        /* Widok mobilny harmonogramu */
         #mobile-list-container { display: none; }
 
         @media (max-width: 768px) {
@@ -46,7 +41,6 @@
             #mobile-list-container { display: block; }
             #fpde-inner { font-size: 16px; width: 100%; }
             #fpde-btn { font-size: 18px; width: 300px; padding: 12px 20px; }
-
             .day-section { margin-bottom: 30px; }
             .day-title { background: var(--primary-blue); color: white; padding: 10px 15px; border-radius: 8px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
             .slot-row { display: flex; border-bottom: 1px solid #eee; padding: 12px 0; gap: 15px; align-items: center; }
@@ -71,7 +65,13 @@
 
     <div style="max-width: 1200px; margin: 0 auto 60px; padding: 0 20px;">
         <div class="main-box" style="padding: clamp(15px, 3vw, 25px);">
-            <div style="margin-bottom: 20px; font-weight: 800; font-size: 22px; color: var(--primary-blue);">Conference Schedule</div>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 20px;">
+                <div style="font-weight: 800; font-size: 22px; color: var(--primary-blue);">Conference Schedule</div>
+                <input id="fpde_search" type="text" placeholder="Search (speaker / title)…"
+                    style="flex: 0 1 300px; border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 10px 12px; font-size: 14px; outline: none;"
+                    oninput="window.__fpdeFilter && window.__fpdeFilter(this.value)" />
+            </div>
+
             <div id="table_div" class="fpde-table-wrap">Loading schedule...</div>
             <div id="mobile-list-container">Loading mobile view...</div>
         </div>
@@ -86,6 +86,7 @@
         google.charts.setOnLoadCallback(drawTable);
 
         let __originalData = null;
+        let __filteredRows = null;
 
         function drawTable() {
             let queryUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${SHEET_GID}&range=${RANGE}&tqx=responseHandler:fpdeHandle`;
@@ -104,20 +105,31 @@
 
         function renderAll() {
             if (!__originalData) return;
-            if (window.innerWidth <= 768) { renderMobileList(); } 
-            else { renderDesktopTable(); }
+            
+            // Tworzymy widok danych na podstawie oryginalnych danych
+            let view = new google.visualization.DataView(__originalData);
+            if (__filteredRows) {
+                view.setRows(__filteredRows);
+            }
+
+            if (window.innerWidth <= 768) { 
+                renderMobileList(view); 
+            } else { 
+                renderDesktopTable(view); 
+            }
         }
 
-        function renderDesktopTable() {
+        function renderDesktopTable(view) {
             const mergedDataTable = new google.visualization.DataTable();
             const labels = ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
             labels.forEach(label => mergedDataTable.addColumn('string', label));
 
-            for (let i = 0; i < __originalData.getNumberOfRows(); i += 2) {
-                let newRow = [__originalData.getValue(i, 0) || ""];
+            // Przetwarzanie wierszy parami (Nazwisko + Tytuł)
+            for (let i = 0; i < view.getNumberOfRows(); i += 2) {
+                let newRow = [view.getValue(i, 0) || ""];
                 for (let col = 1; col <= 5; col++) {
-                    let name = __originalData.getValue(i, col) || "";
-                    let title = (i + 1 < __originalData.getNumberOfRows()) ? __originalData.getValue(i + 1, col) || "" : "";
+                    let name = view.getValue(i, col) || "";
+                    let title = (i + 1 < view.getNumberOfRows()) ? view.getValue(i + 1, col) || "" : "";
                     if (name || title) {
                         newRow.push(`<div style="text-align:center;"><strong>${name}</strong>${title ? '<br><span style="font-size:0.85em;color:#666;">' + title + '</span>' : ''}</div>`);
                     } else { newRow.push(""); }
@@ -132,17 +144,17 @@
             });
         }
 
-        function renderMobileList() {
+        function renderMobileList(view) {
             const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
             let html = "";
             days.forEach((day, dayIdx) => {
                 const colIdx = dayIdx + 1;
                 let dayHtml = `<div class="day-section"><div class="day-title">${day}</div>`;
                 let hasContent = false;
-                for (let i = 0; i < __originalData.getNumberOfRows(); i += 2) {
-                    let time = __originalData.getValue(i, 0) || "";
-                    let name = __originalData.getValue(i, colIdx) || "";
-                    let title = (i + 1 < __originalData.getNumberOfRows()) ? __originalData.getValue(i + 1, colIdx) || "" : "";
+                for (let i = 0; i < view.getNumberOfRows(); i += 2) {
+                    let time = view.getValue(i, 0) || "";
+                    let name = view.getValue(i, colIdx) || "";
+                    let title = (i + 1 < view.getNumberOfRows()) ? view.getValue(i + 1, colIdx) || "" : "";
                     if (name.trim() !== "" || title.trim() !== "") {
                         hasContent = true;
                         dayHtml += `<div class="slot-row"><div class="slot-time">${time}</div><div class="slot-content"><strong>${name}</strong>${title ? `<span class="slot-title-text">${title}</span>` : ""}</div></div>`;
@@ -151,12 +163,42 @@
                 dayHtml += "</div>";
                 if (hasContent) html += dayHtml;
             });
-            document.getElementById("mobile-list-container").innerHTML = html || "No schedule available.";
+            document.getElementById("mobile-list-container").innerHTML = html || "No matching items found.";
         }
+
+        // FUNKCJA FILTRUJĄCA
+        window.__fpdeFilter = function (q) {
+            if (!__originalData) return;
+            const query = (q || "").trim().toLowerCase();
+            
+            if (!query) { 
+                __filteredRows = null; 
+                renderAll(); 
+                return; 
+            }
+
+            const rows = [];
+            for (let r = 0; r < __originalData.getNumberOfRows(); r += 2) {
+                let rowText = "";
+                // Zbieramy tekst z obu wierszy (prelegent + tytuł) dla wszystkich kolumn
+                for (let c = 0; c <= 5; c++) {
+                    rowText += String(__originalData.getValue(r, c) || "") + " ";
+                    if (r + 1 < __originalData.getNumberOfRows()) {
+                        rowText += String(__originalData.getValue(r + 1, c) || "") + " ";
+                    }
+                }
+                
+                if (rowText.toLowerCase().includes(query)) {
+                    rows.push(r);
+                    if (r + 1 < __originalData.getNumberOfRows()) rows.push(r + 1);
+                }
+            }
+            __filteredRows = rows;
+            renderAll();
+        };
 
         window.addEventListener("resize", renderAll);
         
-        // Logika skalowania przycisku Submit
         (function () {
             const stage = document.getElementById('fpde-stage');
             const inner = document.getElementById('fpde-inner');
