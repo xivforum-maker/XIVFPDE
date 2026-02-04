@@ -124,7 +124,7 @@
             const isMobile = window.innerWidth <= 600;
             const options = {
                 showRowNumber: false, width: "100%", height: "auto", allowHtml: true, alternatingRowStyle: true,
-                page: isMobile ? "disable" : "enable", sort: "enable",
+                page: isMobile ? "disable" : "enable", pageSize: 15, sort: "enable", sortColumn: 1, sortAscending: true,  
                 cssClassNames: { headerRow: "fpde-header", tableRow: "fpde-row", oddTableRow: "fpde-row-odd", headerCell: "fpde-header-cell", tableCell: "fpde-cell" }
             };
             __fpdeTable.draw(__fpdeView, options);
