@@ -10,12 +10,10 @@
     <script src="header.js" defer></script>
     
     <style>
-        .fpde-table-wrap, 
-        .google-visualization-table, 
-        .google-visualization-table > div,
-        .google-visualization-table-table {
-            overflow: visible !important;
-            height: auto !important;
+        .fpde-table-wrap {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch; /* Płynne skrolowanie na iOS */
+            margin-top: 10px;
         }
 
         .google-visualization-table-table {
@@ -34,12 +32,34 @@
         .fpde-row td, .fpde-row-odd td { padding: 11px 12px !important; border-bottom: 1px solid rgba(0,0,0,0.06) !important; }
         .fpde-row-odd { background: rgba(30,58,138,0.03) !important; }
 
+        /* Style dla urządzeń mobilnych */
         @media (max-width: 768px) {
             .fpde-header, .google-visualization-table-thead { display: none !important; }
             .google-visualization-table-table { border: none !important; background: transparent !important; }
-            .fpde-row, .fpde-row-odd { display: block !important; margin-bottom: 15px !important; border: 1px solid rgba(0,0,0,0.1) !important; border-radius: 12px !important; background: white !important; }
-            .fpde-row td, .fpde-row-odd td { display: flex !important; justify-content: space-between !important; padding: 12px 15px !important; border-bottom: 1px solid rgba(0,0,0,0.05) !important; }
-            .fpde-row td::before, .fpde-row-odd td::before { content: attr(data-label); font-weight: 800; color: #1E3A8A; font-size: 11px; text-transform: uppercase; }
+            .fpde-row, .fpde-row-odd { 
+                display: block !important; 
+                margin-bottom: 15px !important; 
+                border: 1px solid rgba(0,0,0,0.1) !important; 
+                border-radius: 12px !important; 
+                background: white !important;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            }
+            .fpde-row td, .fpde-row-odd td { 
+                display: flex !important; 
+                justify-content: space-between !important; 
+                padding: 12px 15px !important; 
+                border-bottom: 1px solid rgba(0,0,0,0.05) !important; 
+                text-align: right !important;
+            }
+            .fpde-row td::before, .fpde-row-odd td::before { 
+                content: attr(data-label); 
+                font-weight: 800; 
+                color: #1E3A8A; 
+                font-size: 11px; 
+                text-transform: uppercase; 
+                text-align: left;
+                margin-right: 10px;
+            }
         }
     </style>
 </head>
@@ -96,7 +116,6 @@
             }
             __fpdeData = response.getDataTable();
 
-            // Ustawiamy stałą liczbę uczestników raz, przy załadowaniu
             const totalCount = __fpdeData.getNumberOfRows();
             document.getElementById("participant-count").innerText = `${totalCount} registered participants`;
 
@@ -108,6 +127,7 @@
             __fpdeView = new google.visualization.DataView(__fpdeData);
             __fpdeTable = new google.visualization.Table(document.getElementById("table_div"));
 
+            // Dodawanie etykiet dla widoku mobilnego po narysowaniu tabeli
             google.visualization.events.addListener(__fpdeTable, 'ready', function () {
                 const rows = document.querySelectorAll('.fpde-row, .fpde-row-odd');
                 rows.forEach(row => {
@@ -117,15 +137,29 @@
                     if(cells[2]) cells[2].setAttribute('data-label', 'Affiliation');
                 });
             });
+
             renderTable();
         }
 
         function renderTable() {
-            const isMobile = window.innerWidth <= 600;
+            // Skonfigurowane pod brak limitu osób i automatyczne sortowanie
             const options = {
-                showRowNumber: false, width: "100%", height: "auto", allowHtml: true, alternatingRowStyle: true,
-                page: isMobile ? "disable" : "enable", pageSize: 15, sort: "enable", sortColumn: 1, sortAscending: true,  
-                cssClassNames: { headerRow: "fpde-header", tableRow: "fpde-row", oddTableRow: "fpde-row-odd", headerCell: "fpde-header-cell", tableCell: "fpde-cell" }
+                showRowNumber: false, 
+                width: "100%", 
+                height: "auto", 
+                allowHtml: true, 
+                alternatingRowStyle: true,
+                page: "disable",    // Wyłączony podział na strony (wszystko naraz)
+                sort: "enable",
+                sortColumn: 1,      // Domyślne sortowanie po nazwisku (kolumna B)
+                sortAscending: true, 
+                cssClassNames: { 
+                    headerRow: "fpde-header", 
+                    tableRow: "fpde-row", 
+                    oddTableRow: "fpde-row-odd", 
+                    headerCell: "fpde-header-cell", 
+                    tableCell: "fpde-cell" 
+                }
             };
             __fpdeTable.draw(__fpdeView, options);
         }
@@ -146,10 +180,9 @@
             __fpdeView = new google.visualization.DataView(__fpdeData);
             __fpdeView.setRows(rows);
             renderTable();
-            // Licznik w tym miejscu nie jest aktualizowany – zostaje ten z fpdeHandleResponse
         };
 
-        window.addEventListener("resize", () => { if (__fpdeTable && __fpdeView) renderTable(); });
+        // USUNIĘTO window.addEventListener("resize", ...), aby uniknąć skakania strony na telefonach
     </script>
 </body>
 </html>
