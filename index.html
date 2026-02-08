@@ -167,6 +167,10 @@
             .nav-links { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .info-grid { grid-template-columns: 1fr; }
         }
+
+        @media (max-width: 768px) {
+            .related-grid {grid-template-columns: repeat(2, 1fr) !important;}
+        }
     </style>
 </head>
 <body>
@@ -212,13 +216,14 @@
                     Related events
                 </h3>
 
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                <div class="related-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+
                     
                     <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px;">
                         <a href="https://panda2026.pwr.edu.pl/" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
                             Probability and Analysis 2026
                         </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
+                        <div style="font-size: 0.8rem; color: #64748b;">
                             11 – 15 May 2026, Będlewo
                         </div>
                     </div>
@@ -227,17 +232,18 @@
                         <a href="http://somachi-ptm.pwr.edu.pl/" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
                             SOMACHI
                         </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
+                        <div style="font-size: 0.8rem; color: #64748b;">
                             7 – 12 September 2026, Wrocław 
                         </div>
                     </div>
 
+                    <!-- placeholder cards -->
                     <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px;">
                         <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
-                            NAME 
+                            NAME
                         </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
-                             DATE 
+                        <div style="font-size: 0.8rem; color: #64748b;">
+                            DATE
                         </div>
                     </div>
 
@@ -245,17 +251,8 @@
                         <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
                             NAME
                         </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
-                             DATE 
-                        </div>
-                    </div>
-
-                    <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px;">
-                        <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
-                            NAME 
-                        </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
-                             DATE
+                        <div style="font-size: 0.8rem; color: #64748b;">
+                            DATE
                         </div>
                     </div>
 
@@ -263,17 +260,8 @@
                         <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
                             NAME
                         </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
-                             DATE
-                        </div>
-                    </div>
-                    
-                    <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px;">
-                        <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
-                            NAME
-                        </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
-                             DATE
+                        <div style="font-size: 0.8rem; color: #64748b;">
+                            DATE
                         </div>
                     </div>
 
@@ -281,13 +269,32 @@
                         <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
                             NAME
                         </a>
-                        <div style="font-size: 0.8rem; color: #475569;">
-                             DATE
+                        <div style="font-size: 0.8rem; color: #64748b;">
+                            DATE
+                        </div>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px;">
+                        <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                            NAME
+                        </a>
+                        <div style="font-size: 0.8rem; color: #64748b;">
+                            DATE
+                        </div>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px;">
+                        <a href="" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                            NAME
+                        </a>
+                        <div style="font-size: 0.8rem; color: #64748b;">
+                            DATE
                         </div>
                     </div>
 
                 </div>
             </div>
+
 
         </div>
     </section>
