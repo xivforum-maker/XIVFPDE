@@ -38,7 +38,8 @@ function injectHeader() {
         <div class="header-container">
             <div class="logos">
                 <img src="logo-impan.png" alt="IMPAN Logo" style="height: clamp(70px, 11vw, 100px); width: auto;">
-                <img src="banachcenter.jpg" alt="Banach Center" style="height: clamp(70px, 11vw, 110px); width: auto;">
+                <img src="UW_logo_small_en.svg" alt="UW Logo" style="height: clamp(70px, 11vw, 110px); width: auto;">
+                <img src="logotyp-IDUB-EN-poziom-kolor.svg" alt="IDUB Logo" style="height: clamp(70px, 11vw, 110px); width: auto;">
             </div>
             <div class="header-text">
                 <h1>XIV Forum of Partial Differential Equations</h1>
