@@ -8,7 +8,7 @@ document.getElementById('invited-section').innerHTML = `
                 ["Anna Zatorska-Goldstein", "University of Warsaw, Poland"],
                 ["Andrzej Szulkin", "Stockholm University, Sweden"],
                 ["Aleksander Ćwiszewski", "Nicolaus Copernicus University, Poland"],
-                ["Piotr Kalita", "Jagiellonian University, Poland"],
+                // ["Piotr Kalita", "Jagiellonian University, Poland"],
                 ["Julio Rossi", "University of Buenos Aires, Argentina"],
                 ["Francois Genoud", "EPFL, Switzerland"],
                 ["Jakub Skrzeczkowski", "University of Oxford, UK"],
@@ -22,7 +22,7 @@ document.getElementById('invited-section').innerHTML = `
                 ["Maciej Starostka", "Gdańsk University of Technology, Poland"],
                 ["Iwona Chlebicka", "University of Warsaw, Poland"],
                 ["Agnieszka Świerczewska-Gwiazda", "University of Warsaw, Poland"],
-                ["Jorgen Endal", "NTNU Trondheim, Norway"]
+                // ["Jorgen Endal", "NTNU Trondheim, Norway"]
             ].map(speaker => `
             <div class="card" style="display: flex; align-items: center; justify-content: space-between; padding: 15px; gap: 15px; border: 1px solid #edf2f7; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
                 <div style="flex: 1;">
