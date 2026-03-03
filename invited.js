@@ -5,24 +5,26 @@ document.getElementById('invited-section').innerHTML = `
         <div class="info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
             
             ${[
-                ["Anna Zatorska-Goldstein", "University of Warsaw, Poland"],
-                ["Andrzej Szulkin", "Stockholm University, Sweden"],
-                ["Aleksander Ćwiszewski", "Nicolaus Copernicus University, Poland"],
-                // ["Piotr Kalita", "Jagiellonian University, Poland"],
-                ["Julio Rossi", "University of Buenos Aires, Argentina"],
-                ["Francois Genoud", "EPFL, Switzerland"],
-                ["Jakub Skrzeczkowski", "University of Oxford, UK"],
-                ["Michał Kowalczyk", "University of Chile, Chile"],
-                ["Jacek Jendrej", "Sorbonne Université, France"],
-                ["Łukasz Płociniczak", "Wrocław University of Science and Technology, Poland"],
+               
+                ["Iwona Chlebicka", "University of Warsaw, Poland"], 
+                ["Aleksander Ćwiszewski", "Nicolaus Copernicus University, Poland"], 
+                ["Francois Genoud", "EPFL, Switzerland"], 
+                ["Jacek Jendrej", "Sorbonne Université, France"], 
+                ["Grzegorz Karch", "University of Wrocław, Poland"], 
+                ["Michał Kowalczyk", "University of Chile, Chile"], 
+                ["Konstantin Merz", "ETH Zurich, Switzerland"], 
+                ["Katarzyna Pietruska-Pałuba", "University of Warsaw, Poland"], 
+                ["Łukasz Płociniczak", "Wrocław University of Science and Technology, Poland"], 
+                ["Julio Rossi (Not Confirmed)", "University of Buenos Aires, Argentina"], 
+                ["Jakub Skrzeczkowski", "University of Oxford, UK"], 
+                ["Maciej Starostka", "Gdańsk University of Technology, Poland"], 
+                ["Andrzej Szulkin", "Stockholm University, Sweden"], 
+                ["Agnieszka Świerczewska-Gwiazda", "University of Warsaw, Poland"], 
                 ["Tomasz Tyranowski", "University of Twente, Netherlands"],
-                ["Katarzyna Pietruska-Pałuba", "University of Warsaw, Poland"],
-                ["Konstantin Merz", "ETH Zurich, Switzerland"],
-                ["Nils Waterstraat", "MLU Halle-Wittenberg, Germany"],
-                ["Maciej Starostka", "Gdańsk University of Technology, Poland"],
-                ["Iwona Chlebicka", "University of Warsaw, Poland"],
-                ["Agnieszka Świerczewska-Gwiazda", "University of Warsaw, Poland"],
-                // ["Jorgen Endal", "NTNU Trondheim, Norway"]
+                ["Nils Waterstraat", "MLU Halle-Wittenberg, Germany"], 
+                ["Anna Zatorska-Goldstein", "University of Warsaw, Poland"],
+
+
             ].map(speaker => `
             <div class="card" style="display: flex; align-items: center; justify-content: space-between; padding: 15px; gap: 15px; border: 1px solid #edf2f7; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
                 <div style="flex: 1;">
