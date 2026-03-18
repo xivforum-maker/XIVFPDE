@@ -5,173 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XIV Forum on PDE | Będlewo 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #1E3A8A; /* Zmienione z zielonego na niebieski */
-            --navbar-bg: rgba(30, 41, 59, 0.98); 
-            --light-gray: #f5f7f9;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: white;
-        }
-
-        /* --- NAWIGACJA (PROSTA, BEZ BANERA) --- */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--navbar-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 40px;
-            box-sizing: border-box;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .nav-logo img {
-            height: 35px;
-            background: white;
-            padding: 3px;
-            border-radius: 4px;
-            margin-right: 12px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        /* --- HERO --- */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), 
-                        url('image_d2cb7a.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding-top: 60px;
-            box-sizing: border-box;
-        }
-
-        .hero-content h2 { font-size: clamp(18px, 2vw, 24px); font-weight: 400; margin-bottom: 10px; }
-        .hero-content h1 { font-size: clamp(40px, 8vw, 90px); font-weight: 900; margin: 0; line-height: 1.1; }
-        .hero-content p.sub { font-size: clamp(24px, 4vw, 45px); font-weight: 300; margin: 10px 0; }
-        .hero-content p.venue { font-size: clamp(16px, 1.5vw, 22px); margin-top: 20px; opacity: 0.9; }
-
-        /* --- SEKCJE --- */
-        .general-info {
-            padding: 100px 20px;
-            max-width: 950px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-title { color: var(--primary-blue); font-size: 32px; margin-bottom: 40px; font-weight: 900; }
-        .general-text { font-size: 20px; color: #444; margin-bottom: 50px; text-align: justify; }
-
-        .btn-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn {
-            padding: 16px 45px;
-            font-size: 18px;
-            font-weight: 700;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: 0.3s;
-            min-width: 220px;
-        }
-        .btn-solid { background: var(--primary-blue); color: white; border: 2px solid var(--primary-blue); }
-        .btn-outline { background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2); }
-
-        .important-info {
-            background-color: var(--light-gray);
-            padding: 100px 20px;
-        }
-
-        .info-wrapper { max-width: 1050px; margin: 0 auto; }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 80px;
-        }
-
-        .card {
-            background: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .card h4 { margin: 0 0 15px 0; font-size: 13px; letter-spacing: 2px; color: var(--primary-blue); text-transform: uppercase; font-weight: 900; }
-        .card p { margin: 0; font-size: 18px; color: #4b5563; }
-        .card a { color: var(--primary-blue); text-decoration: none; font-weight: 600; }
-
-        .footer-links {
-            border-left: 5px solid var(--primary-blue);
-            padding-left: 30px;
-            margin-top: 40px;
-        }
-        .footer-links p { font-size: 19px; margin: 18px 0; color: #374151; }
-        .footer-links a { color: var(--primary-blue); text-decoration: none; font-weight: 700; }
-
-        .support-section {
-            padding: 80px 20px;
-            text-align: center;
-            background: white;
-            border-top: 1px solid #eee;
-        }
-
-        @media (max-width: 1024px) {
-            .navbar { flex-direction: column; padding: 15px; }
-            .nav-links { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 10px; }
-            .info-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .related-grid {grid-template-columns: repeat(2, 1fr) !important;}
-        }
-    </style>
+    <link rel="stylesheet" href="Startpage.css">
 </head>
 <body>
 
@@ -200,7 +34,7 @@
     </section>
 
 <section style="width: 100%; background-color: #f5f7f9; padding: 100px 0; border-bottom: 1px solid #e2e8f0;">
-        <div class="general-info" style="max-width: 950px; margin: 0 auto; padding: 0 20px;">
+        <div class="general-info" style="max-width: 950px; margin: 0 auto;">
             <h2 class="section-title">General Information</h2>
             <div class="general-text">
                 <p>The Forum of Partial Differential Equations is an international conference devoted to recent advances in the theory and applications of partial differential equations.</p>
@@ -211,6 +45,60 @@
                 <a href="program.html" class="btn btn-outline">Submit abstract</a>
             </div>
 
+        </div>
+    <!-- </section> -->
+
+    <!-- <section> -->
+        <div id="countdown-section"></div>
+    
+    </section>
+
+    <script src="countdown.js"></script>
+
+
+    <div id="invited-section"></div>
+
+    <script src="invited.js"></script>
+
+       
+    
+
+    <section class="important-info" style="border-bottom: 1px solid #e2e8f0;">
+        <div class="info-wrapper">
+            <h2 class="section-title" style="text-align: center;">Important Information</h2>
+            
+            <div class="info-grid">
+                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
+                    <h4>Deadlines</h4>
+                    <p>Registration: <b>[TBA]</b><br>Abstract submission: <b>[TBA]</b></p>
+                </div>
+
+                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
+                    <h4>Venue</h4>
+                    <p><b>Będlewo Conference Center</b><br>Location details: <a href="https://www.google.com/maps/place/Pa%C5%82ac+Potockich+B%C4%99dlewo/@52.2357476,16.7268353,17z/data=!4m9!3m8!1s0x47044cfea71ce475:0x981c4c654fa2c08c!5m2!4m1!1i2!8m2!3d52.2357443!4d16.7294102!16s%2Fg%2F121qyrzx?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on map</a></p>
+                </div>
+
+                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
+                    <h4>Updates</h4>
+                    <p>Last update: <b>February 2026</b><br>Programme version: <a href="program.html">TBA</a></p>
+                </div>
+
+                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:xivforum@impan.pl">xivforum@impan.pl</a><br>
+                    <small style="color: #888;">Organizers: J. Mederski, B. Bieganowski, S. Cygan</small></p>
+                </div>
+            </div>
+
+            <div class="footer-links" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white; padding: 30px; border-left: 5px solid var(--primary-blue); margin-top: 0;">
+                <h4 style="margin-top: 0; color: var(--primary-blue); font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 900; margin-bottom: 15px;">Programme & Abstracts</h4>
+                <p style="margin-bottom: 10px;">The programme of the conference will be available online.</p>
+                <p style="margin-bottom: 0;">The Book of Abstracts will be available as a PDF file.</p>
+            </div>
+        </div>
+
+        <div class="general-info" style="max-width: 950px; margin: 0 auto; padding: 0 20px;">
+            
             <div style="margin-top: 180px;">
                 <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #1E3A8A;">
                     Related events
@@ -218,33 +106,32 @@
 
                 <div class="related-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
 
-                    
-                <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                        <a href="https://panda2026.pwr.edu.pl/" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                <a href="https://panda2026.pwr.edu.pl/" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                    <div class = event-card>
                             Probability and Analysis 2026
-                        </a>
-                        <div style="font-size: 0.8rem; color: #64748b;">
-                            11 – 15 May 2026, Będlewo
+                            <div style="font-size: 0.8rem; color: #64748b;">
+                                11 – 15 May 2026, Będlewo
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
-                    <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                        <a href="https://sites.google.com/impan.pl/ntepde2026" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                    <a href="https://sites.google.com/impan.pl/ntepde2026" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                        <div class = event-card>
                             New trends in elliptic PDEs
-                        </a>
-                        <div style="font-size: 0.8rem; color: #64748b;">
-                            13 – 17 July 2026, Będlewo 
+                            <div style="font-size: 0.8rem; color: #64748b;">
+                                13 – 17 July 2026, Będlewo 
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
-                    <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                        <a href="http://somachi-ptm.pwr.edu.pl/" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                    <a href="http://somachi-ptm.pwr.edu.pl/" target="_blank" style="font-weight: 600; text-decoration: none; color: #1E3A8A; font-size: 0.9rem;">
+                        <div class = event-card>
                             SOMACHI
-                        </a>
-                        <div style="font-size: 0.8rem; color: #64748b;">
-                            7 – 12 September 2026, Wrocław 
+                            <div style="font-size: 0.8rem; color: #64748b;">
+                                7 – 12 September 2026, Wrocław 
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- placeholder cards
                     <div style="background: white; border: 1px solid #e2e8f0; padding: 12px 14px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
@@ -303,67 +190,69 @@
 
                 </div>
             </div>
-
-
         </div>
     </section>
 
-    
 
-       
-    
 
-    <section class="important-info">
-        <div class="info-wrapper">
-            <h2 class="section-title" style="text-align: center;">Important Information</h2>
-            
-            <div class="info-grid">
-                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
-                    <h4>Deadlines</h4>
-                    <p>Registration: <b>[TBA]</b><br>Abstract submission: <b>[TBA]</b></p>
-                </div>
 
-                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
-                    <h4>Venue</h4>
-                    <p><b>Będlewo Conference Center</b><br>Location details: <a href="https://www.google.com/maps/place/Pa%C5%82ac+Potockich+B%C4%99dlewo/@52.2357476,16.7268353,17z/data=!4m9!3m8!1s0x47044cfea71ce475:0x981c4c654fa2c08c!5m2!4m1!1i2!8m2!3d52.2357443!4d16.7294102!16s%2Fg%2F121qyrzx?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">View on map</a></p>
-                </div>
+        <section class="support-section">
+        <h2 class="section-title">Support & Partners</h2>
+        <p class="section-subtitle">
+            The conference is supported and promoted by the following institutions:
+        </p>
 
-                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
-                    <h4>Updates</h4>
-                    <p>Last update: <b>February 2026</b><br>Programme version: <a href="program.html">TBA</a></p>
-                </div>
+        <!-- SUPPORT -->
+        <div class="support-block">
+            <h3 class="support-subheading">Support</h3>
 
-                <div class="card" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white;">
-                    <h4>Contact</h4>
-                    <p>Email: <a href="mailto:xivforum@impan.pl">xivforum@impan.pl</a><br>
-                    <small style="color: #888;">Organizers: J. Mederski, B. Bieganowski, S. Cygan</small></p>
-                </div>
+            <div class="logo-grid">
+
+                <a href="https://impan.pl/en/" target="_blank" class="logo-item">
+                    <div class="logo-card">
+                        <img src="logo-impan.png" alt="IMPAN">
+                    </div>
+                    <span>Institute of Mathematics, Polish Academy of Sciences</span>
+                </a>
+
+                <a href="https://mimuw.edu.pl/en/institute-of-mathematics/" target="_blank" class="logo-item">
+                    <!-- <a href="https://cbn.umk.pl/en_GB" target="_blank" class="logo-item"> -->
+                    <div class="logo-card">
+                        <img src="UW_logo_small_en.svg" alt="University of Warsaw">
+                    </div>
+                    <span>University of Warsaw</span>
+                <!-- </a> -->
+                </a>
+
+                <a href="https://inicjatywadoskonalosci.uw.edu.pl/en/" target="_blank" class="logo-item">
+                    <div class="logo-card">
+                        <img src="logotyp-IDUB-EN-poziom-kolor.svg" alt="Research University">
+                    </div>
+                    <span>Excellence Initiative – Research University</span>
+                </a>
+
             </div>
+        </div>
 
-            <div class="footer-links" style="box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: white; padding: 30px; border-left: 5px solid var(--primary-blue); margin-top: 0;">
-                <h4 style="margin-top: 0; color: var(--primary-blue); font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 900; margin-bottom: 15px;">Programme & Abstracts</h4>
-                <p style="margin-bottom: 10px;">The programme of the conference will be available online.</p>
-                <p style="margin-bottom: 0;">The Book of Abstracts will be available as a PDF file.</p>
+        <!-- PARTNERS -->
+        <div class="partners-block">
+            <h3 class="support-subheading">Partners</h3>
+
+            <div class="logo-grid">
+
+                <a href="https://cbn.umk.pl/en_GB" target="_blank" class="logo-item">
+                    <div class="logo-card">
+                        <!-- wrzuć tu logo Schauder -->
+                        <img src="schauder_logo.png" alt="Schauder Center">
+                    </div>
+                    <span>Juliusz P. Schauder Center for Nonlinear Studies</span>
+                </a>
+
             </div>
         </div>
+
     </section>
-
-
- <div id="invited-section"></div>
-
- <script src="invited.js"></script>
-
-
-<section class="support-section" style="background-color: #f5f7f9; border-top: none;">
-        <h2 class="section-title">Support</h2>
-        <p style="color: #666; max-width: 600px; margin: 0 auto 30px;">The conference is supported by the following institutions:</p>
-        <div style="display: flex; justify-content: center; gap: 40px; align-items: center; flex-wrap: wrap; padding-bottom: 40px;">
-             <img src="logo-impan.png" alt="IMPAN" style="height: 100px; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-             <!-- <img src="banachcenter.jpg" alt="Banach Center" style="height: 100px; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);"> -->
-             <img src="UW_logo_small_en.svg" alt="Banach Center" style="height: 100px; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-             <img src="logotyp-IDUB-EN-poziom-kolor.svg" alt="Banach Center" style="height: 100px; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-        </div>
-    </section>
+  
 </body>
 </html>
 
