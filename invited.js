@@ -12,7 +12,7 @@ document.getElementById('invited-section').innerHTML = `
                 ["Jacek Jendrej", "Sorbonne Université, France","https://webusers.imj-prg.fr/~jacek.jendrej/", "https://webusers.imj-prg.fr/~jacek.jendrej/ja-3.jpg"], 
                 ["Grzegorz Karch", "University of Wrocław, Poland","https://karch.math.uni.wroc.pl/","https://lh3.googleusercontent.com/sitesv/APaQ0SRk7oXr-nCsscDzzu7Gi8RhsMtYMOMhV6wnnFy6STBukLFO2wHKFHpoACZS_rEbN4fEV2-XfMnPvxo9rYUyv7tT_IqaYMfk8NwxSIUBmfgMvcQ4_IfxrVoGVO64q3-o_w8_alkd-XlsICyLlflxeAeu937y3UrFsfpNGWrPRSBwMbzVtlVRjix8Gud-jeqQafzg4fL0Q5Slkub_VbM5VikMz2vP4RcIL0HBEjQ=w1280"], 
                 ["Michał Kowalczyk", "University of Chile, Chile","https://www.cmm.uchile.cl/?cmm_people=michal-kowalczyk","https://www.cmm.uchile.cl/wp-content/uploads/2012/02/kowalczyk_m2.jpg"], 
-                ["Konstantin Merz", "ETH Zurich, Switzerland","https://people.phys.ethz.ch/~mkonstanti/"], 
+                ["Konstantin Merz", "ETH Zurich, Switzerland","https://people.phys.ethz.ch/~mkonstanti/","https://people.phys.ethz.ch/~mkonstanti/km_cropped.jpg"], 
                 ["Katarzyna Pietruska-Pałuba", "University of Warsaw, Poland","https://www.mimuw.edu.pl/pl/pracownicy/431/"], 
                 ["Łukasz Płociniczak", "Wrocław University of Science and Technology, Poland","https://prac.im.pwr.edu.pl/~plociniczak/", "https://prac.im.pwr.edu.pl/~plociniczak/images/6/b/8/9/3/6b8931bc3dc420e7cfb4149e666c05048bb948d2-plociniczaklukasz2024.png"], 
                 ["Julio Rossi (Not Confirmed)", "University of Buenos Aires, Argentina","#"], 
