@@ -158,7 +158,7 @@
 
         .support-section h2,
         .support-section h3 {
-            color: white;
+            color: #f5f7f9;
         }
 
         @media (max-width: 1024px) {
